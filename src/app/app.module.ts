@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { FeedComponent } from './feed/feed.component';
-import { HeaderComponent } from './feed/header/header.component';
 import { TweetBoxComponent } from './feed/tweet-box/tweet-box.component';
 import { PostComponent } from './feed/post/post.component';
 
@@ -16,7 +15,6 @@ import { PostComponent } from './feed/post/post.component';
     AppComponent,
     SidebarComponent,
     FeedComponent,
-    HeaderComponent,
     TweetBoxComponent,
     PostComponent,
   ],

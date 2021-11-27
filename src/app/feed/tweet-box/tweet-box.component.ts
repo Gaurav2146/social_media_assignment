@@ -21,6 +21,8 @@ export class TweetBoxComponent implements OnInit {
 
     let len = event.length;
 
+    console.log(  )
+
     let row = Math.ceil( len / 35 );
 
     this.row = row;

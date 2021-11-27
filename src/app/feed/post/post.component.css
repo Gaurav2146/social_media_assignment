@@ -29,7 +29,7 @@
   
   .post__headerText > h3 {
     font-size: 15px;
-    margin-bottom: 5px;
+    /* margin-bottom: 5px; */
   }
   
   .post__badge {
@@ -75,3 +75,25 @@
   {
     background-color: #e8f5fe;
   }
+
+  .icon
+  {
+      color: gray;
+      /* border: 1px solid black; */
+      padding: 10px;
+      border-radius: 50%;
+      margin: 0 10px;
+      
+  }
+
+  .icon:hover
+  {
+    background-color: #5492be7e;
+    color: #269ee9 !important;
+  }
+
+
+
+
+
+  

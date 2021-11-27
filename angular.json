@@ -24,6 +24,7 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/@fortawesome/fontawesome-free/css/all.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -119,6 +120,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "twitter-clone-assignment"
+    }
+  },
+  "defaultProject": "twitter-clone-assignment",
+  "cli": {
+    "analytics": "b38ef3b3-27ee-40bc-b80e-17652a5a6519"
+  }
 }

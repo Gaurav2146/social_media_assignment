@@ -1,0 +1,68 @@
+.sidebar-field
+{
+    display: flex;
+    margin-left: 10px;
+}
+
+.twitter-icon
+{
+    display: flex;
+    margin-left: 10px;
+    max-width: 50px;
+}
+
+.tweet
+{
+    margin-left: 20px;
+    width: 80%;
+    background-color: var(--twitter-color) !important;
+    border: none !important;
+    color: white !important;
+    font-weight: 900 !important;
+    text-transform: inherit !important;
+    border-radius: 30px !important;
+    height: 50px !important;
+    margin-top: 10px !important;
+}
+
+.tweet:hover
+{
+    background-color: #269ee9 !important;
+}
+
+.sidebar-field:hover
+{
+    background-color: #e8f5fe;
+    border-radius: 30px;
+    color: var(--twitter-color);
+    transition : color 100ms ease-out;
+    cursor: pointer;
+}
+
+.twitter-icon:hover
+{
+    background-color: #e8f5fe;
+    border-radius: 30px;
+    color: var(--twitter-color);
+    transition : color 100ms ease-out;
+    cursor: pointer;
+}
+
+.option
+{
+    margin-top: 15px; 
+    font-weight: 600;
+    font-size: 15px;
+    margin-right: 20px;
+}
+
+.icon
+{
+    font-size: 22px;
+    padding: 15px;
+}
+
+.active
+{
+    color: var(--twitter-color);
+}

@@ -11,6 +11,8 @@ export class PostComponent implements OnInit {
 
   @Input('image') image : string = "";
   @Input('description') description : string = "";
+  @Input('name') name : string = "";
+  @Input('email') email : string = "";
 
   ngOnInit(): void {
   }

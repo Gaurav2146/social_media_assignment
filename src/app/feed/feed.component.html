@@ -8,7 +8,8 @@
 <app-tweet-box></app-tweet-box>
 
 <div *ngFor="let post of Posts" >
-  <app-post  [image]="post.image" [description]="post.description" ></app-post>
+  <app-post  [image]="post.image" [description]="post.description" [name]="post.user_detail[0].name" 
+  [email]="post.user_detail[0].email" ></app-post>
 </div>
 
 <!-- <app-post></app-post>

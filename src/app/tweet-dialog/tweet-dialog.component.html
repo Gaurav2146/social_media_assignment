@@ -1,20 +1,24 @@
-<!-- <h1 mat-dialog-title>Favorite Animal</h1>
-<div mat-dialog-content>
-  My favorite animal is:
-  <ul>
-    <li>
-      <span *ngIf="data.animal === 'panda'">&#10003;</span> Panda
-    </li>
-    <li>
-      <span *ngIf="data.animal === 'unicorn'">&#10003;</span> Unicorn
-    </li>
-    <li>
-      <span *ngIf="data.animal === 'lion'">&#10003;</span> Lion
-    </li>
-  </ul>
-</div> -->
 
-
-<div class="icon_image">
-    <img [src]="data.image" alt="" srcset="">
+<div class="tweet-box">
+  <form>
+      <div class="tweetBox-input">
+        <div>  <img src="https://i.zoomtventertainment.com/story/gaurav-chopra.jpg?tr=w-1200,h-900" alt="Avatar" class="avatar"> </div>
+       <textarea [rows]="row" (keyup)="fun($event.target.value)" cols="50" placeholder="What's happening?"></textarea>
+      </div>
+      <div *ngIf="base64Img" class="icon_image">
+        <!-- <img [src]="data.image" alt="" srcset=""> -->
+        <img [src]="base64Img" alt="Avatar">
+      </div>
+      <div class="tweet_section">
+      <div class="container">
+      <div class="upload-btn-wrapper">
+          <button class="btn"><i class="fa fa-upload" aria-hidden="true"></i></button>
+          <input type="file" #fileInput id="file" (change)="loadAllImages($event.target.files)">
+        </div>
+      </div>  
+      <div> 
+        <button class="tweet_button" > Tweet </button>
+      </div>  
+      </div>
+  </form>
 </div>

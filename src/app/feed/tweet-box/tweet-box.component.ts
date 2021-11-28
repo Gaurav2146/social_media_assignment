@@ -13,6 +13,8 @@ export class TweetBoxComponent implements OnInit {
 
   row : number = 1;
 
+  base64Img : string = '';
+
   constructor(public dialog: MatDialog) {}
 
   ngOnInit(): void {
@@ -44,9 +46,10 @@ export class TweetBoxComponent implements OnInit {
               resolve(event.target.result)
             })
             promise.then(( data : any) => {
+              this.base64Img = data;
                 // console.log( data , 'base64 data' );
                 this.el.nativeElement.value = '';
-                this.openDialog(data);
+                // this.openDialog(data);
             })
           };
           reader.readAsDataURL(files[i]);
@@ -58,12 +61,12 @@ export class TweetBoxComponent implements OnInit {
   }
 
 
-  openDialog(data) {
-    this.dialog.open(TweetDialogComponent, {
-      data: {
-        image : data,
-      },
-    });
-  }
+  // openDialog(data) {
+  //   this.dialog.open(TweetDialogComponent, {
+  //     data: {
+  //       image : data,
+  //     },
+  //   });
+  // }
 
 }

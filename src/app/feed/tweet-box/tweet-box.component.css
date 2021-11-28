@@ -86,3 +86,9 @@
 {
     background-color: #e8f5fe;
 }
+
+.tweet_section
+{
+    display: flex;
+    justify-content: space-between;
+}

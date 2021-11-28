@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-tweet-box',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tweet-box.component.css']
 })
 export class TweetBoxComponent implements OnInit {
+
+  @ViewChild('fileInput') el:ElementRef;
 
   row : number = 1;
 
@@ -27,6 +29,29 @@ export class TweetBoxComponent implements OnInit {
 
     this.row = row;
 
+  }
+
+
+  loadAllImages(files: any) {
+    let filesLength = files.length;
+    for (let i = 0; i < filesLength; i++) {
+      if (files[i].type == 'image/jpeg' || files[i].type == 'image/jpg' || files[i].type == 'image/png' || files[i].type == 'image/jfif' || files[i].type == 'image/gif') {
+          const reader = new FileReader();
+          reader.onload = (event: any) => {
+            const promise = new Promise((resolve, reject) => {
+              resolve(event.target.result)
+            })
+            promise.then(( data : any) => {
+                console.log( data , 'base64 data' );
+                this.el.nativeElement.value = '';
+            })
+          };
+          reader.readAsDataURL(files[i]);
+      } else {
+        // this.snack.open('Invalid File Format. Accepted File Format: /jpg, /jpeg, /png, /jfif, /gif', 'X', { horizontalPosition: 'end', verticalPosition: 'bottom', duration: 4000, panelClass: ['error-snackbar'] });
+        console.log( 'Invalid File Format. Accepted File Format: /jpg, /jpeg, /png, /jfif, /gif' );
+      }
+    }
   }
 
 }

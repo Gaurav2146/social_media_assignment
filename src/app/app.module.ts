@@ -11,6 +11,7 @@ import { MaterialModule } from './material/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UserComponent } from './user/user.component';
 import { FollowersComponent } from './user/followers/followers.component';
+import { TweetDialogComponent } from './tweet-dialog/tweet-dialog.component';
 
 
 
@@ -23,6 +24,7 @@ import { FollowersComponent } from './user/followers/followers.component';
     PostComponent,
     UserComponent,
     FollowersComponent,
+    TweetDialogComponent,
   ],
   imports: [
     BrowserModule,

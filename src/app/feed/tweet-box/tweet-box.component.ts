@@ -1,4 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { TweetDialogComponent } from 'src/app/tweet-dialog/tweet-dialog.component';
 
 @Component({
   selector: 'app-tweet-box',
@@ -11,7 +13,7 @@ export class TweetBoxComponent implements OnInit {
 
   row : number = 1;
 
-  constructor() { }
+  constructor(public dialog: MatDialog) {}
 
   ngOnInit(): void {
   }
@@ -44,6 +46,9 @@ export class TweetBoxComponent implements OnInit {
             promise.then(( data : any) => {
                 console.log( data , 'base64 data' );
                 this.el.nativeElement.value = '';
+
+                this.openDialog(data);
+
             })
           };
           reader.readAsDataURL(files[i]);
@@ -52,6 +57,15 @@ export class TweetBoxComponent implements OnInit {
         console.log( 'Invalid File Format. Accepted File Format: /jpg, /jpeg, /png, /jfif, /gif' );
       }
     }
+  }
+
+
+  openDialog(data) {
+    this.dialog.open(TweetDialogComponent, {
+      data: {
+        image : data,
+      },
+    });
   }
 
 }

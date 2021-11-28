@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import {MatTooltipModule} from '@angular/material/tooltip';
-
+import {MatDialogModule} from '@angular/material/dialog';
 const MaterialComponents = [
-  MatTooltipModule
+  MatTooltipModule,
+  MatDialogModule
 ]
 
 @NgModule({

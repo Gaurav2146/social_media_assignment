@@ -77,7 +77,6 @@ export class TweetDialogComponent implements OnInit {
         this.dailogRef.close();
         this.snackbar.open("Something went wrong!", 'X', { horizontalPosition: 'end', verticalPosition: 'bottom', duration: 4000, panelClass: ['info-snackbar'] });
       });
-  
   }
 
   

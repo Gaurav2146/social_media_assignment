@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from 'src/app/services/user.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-followers',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FollowersComponent implements OnInit {
 
-  constructor() { }
+  constructor( private user_service : UserService , private snackbar : MatSnackBar ) { }
+
+  userId = '';
 
   ngOnInit(): void {
+  }
+
+  addFollower()
+  {
+     this.user_service.addFollower({ followerId : this.userId }).subscribe((data)=>{
+      console.log(data);
+      this.snackbar.open("Followed Successfully", 'X', { horizontalPosition: 'end', verticalPosition: 'bottom', duration: 4000, panelClass: ['info-snackbar'] });
+     },(error)=>{
+      this.snackbar.open("Something went wrong!", 'X', { horizontalPosition: 'end', verticalPosition: 'bottom', duration: 4000, panelClass: ['info-snackbar'] });
+     })
   }
 
 }

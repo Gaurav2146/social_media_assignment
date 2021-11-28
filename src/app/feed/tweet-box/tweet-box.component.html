@@ -5,9 +5,13 @@
          <textarea [rows]="row" (keyup)="fun($event.target.value)" cols="50" placeholder="What's happening?"></textarea>
         </div>
         <div class="tweet_section">
-        <div>
-          <input type="file" #fileInput id="file" (change)="loadAllImages($event.target.files)">
-        </div>    
+        <div class="container">
+        <div class="upload-btn-wrapper">
+            <button class="btn"><i class="fa fa-upload" aria-hidden="true"></i></button>
+            <input type="file" #fileInput id="file" (change)="loadAllImages($event.target.files)">
+          </div>
+        </div>  
+        
         <div> 
           <button class="tweet_button" > Tweet </button>
         </div>  

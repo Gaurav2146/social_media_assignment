@@ -92,3 +92,44 @@
     display: flex;
     justify-content: space-between;
 }
+
+
+.upload-btn-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+  }
+  
+  .btn {
+    
+    color: var(--twitter-color);
+    background-color: white;
+    background-color: #e8f5fe;
+    padding: 6px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    /* border: 1px solid black; */
+  }
+
+
+  .btn:hover
+  {
+    background-color: #e8f5fe;
+    cursor: pointer;
+  }
+  
+  .upload-btn-wrapper input[type=file] {
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+  }
+
+  .container
+  {
+    padding-left: 20px;
+    padding-top: 5px;
+  }

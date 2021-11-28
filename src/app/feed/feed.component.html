@@ -7,8 +7,11 @@
 
 <app-tweet-box></app-tweet-box>
 
-<app-post></app-post>
-<app-post></app-post>
-<app-post></app-post>
+<div *ngFor="let post of Posts" >
+  <app-post  [image]="post.image" [description]="post.description" ></app-post>
+</div>
+
+<!-- <app-post></app-post>
+<app-post></app-post> -->
 
 </div>

@@ -20,5 +20,10 @@ export class UserService {
     return this.apiService.request('get', 'user/getUsersToFollow' )
   };
   
+  public getPosts() {
+    return this.apiService.request('get', 'user/getPosts' )
+  };
+  
+  
 
 }

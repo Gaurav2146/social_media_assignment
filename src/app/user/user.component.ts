@@ -19,11 +19,7 @@ export class UserComponent implements OnInit {
   getUsersToFollow()
   {
     this.userService.getUsersToFollow().subscribe((data)=>{
-
-      console.log(data ,  'getUsersToFollow' );
-
       this.users_to_follow = data;
-
     },(error)=>{
       console.log(error);
     })

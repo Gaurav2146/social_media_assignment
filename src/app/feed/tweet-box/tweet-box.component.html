@@ -4,6 +4,10 @@
           <div>  <img src="https://i.zoomtventertainment.com/story/gaurav-chopra.jpg?tr=w-1200,h-900" alt="Avatar" class="avatar"> </div>
          <textarea [rows]="row" (keyup)="fun($event.target.value)" cols="50" placeholder="What's happening?"></textarea>
         </div>
+        <div class="icon_image">
+          <!-- <img [src]="data.image" alt="" srcset=""> -->
+          <img src="https://media.wired.com/photos/59326d5344db296121d6aee9/master/pass/8552.gif" alt="Avatar">
+        </div>
         <div class="tweet_section">
         <div class="container">
         <div class="upload-btn-wrapper">
@@ -11,7 +15,6 @@
             <input type="file" #fileInput id="file" (change)="loadAllImages($event.target.files)">
           </div>
         </div>  
-        
         <div> 
           <button class="tweet_button" > Tweet </button>
         </div>  

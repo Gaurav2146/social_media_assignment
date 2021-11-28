@@ -44,11 +44,9 @@ export class TweetBoxComponent implements OnInit {
               resolve(event.target.result)
             })
             promise.then(( data : any) => {
-                console.log( data , 'base64 data' );
+                // console.log( data , 'base64 data' );
                 this.el.nativeElement.value = '';
-
                 this.openDialog(data);
-
             })
           };
           reader.readAsDataURL(files[i]);

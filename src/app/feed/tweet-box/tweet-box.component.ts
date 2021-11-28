@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { TweetDialogComponent } from 'src/app/tweet-dialog/tweet-dialog.component';
+import { TweetService } from 'src/app/services/tweet.service';
 
 @Component({
   selector: 'app-tweet-box',
@@ -10,12 +11,15 @@ import { TweetDialogComponent } from 'src/app/tweet-dialog/tweet-dialog.componen
 export class TweetBoxComponent implements OnInit {
 
   @ViewChild('fileInput') el:ElementRef;
+  @ViewChild('textinput') text:ElementRef;
+  
 
   row : number = 1;
 
   base64Img : string = '';
+  description : any = '';
 
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog , private tweetService : TweetService) {}
 
   ngOnInit(): void {
   }
@@ -24,6 +28,8 @@ export class TweetBoxComponent implements OnInit {
   fun(event)
   {
     console.log(event);
+
+    this.description = event;
 
     let len = event.length;
 
@@ -47,6 +53,7 @@ export class TweetBoxComponent implements OnInit {
             })
             promise.then(( data : any) => {
               this.base64Img = data;
+              // this.saveProductDetailsStepThree();
                 // console.log( data , 'base64 data' );
                 this.el.nativeElement.value = '';
                 // this.openDialog(data);
@@ -60,6 +67,32 @@ export class TweetBoxComponent implements OnInit {
     }
   }
 
+
+  
+  saveProductDetailsStepThree() {
+
+    if(!this.description && !this.base64Img)
+    {
+        return;
+    }
+
+    let body = {
+      image : this.base64Img , 
+      description : this.description,
+      user_Id : "12345678"
+    }
+      this.tweetService.addNewProductStepThree(body).subscribe((result: any) => {
+        if (result.success === true) {
+         
+          console.log(result);
+          this.base64Img = '';
+          this.text.nativeElement.value='';
+
+        }
+      }, (error) => {
+      });
+  
+  }
 
   // openDialog(data) {
   //   this.dialog.open(TweetDialogComponent, {

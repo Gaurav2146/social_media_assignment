@@ -17,6 +17,7 @@ export class SidebarComponent implements OnInit {
 
   openDialog() {
     this.dialog.open(TweetDialogComponent, {
+      disableClose : true,
       data: {
         // image : data,
       },

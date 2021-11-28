@@ -3,7 +3,7 @@
   <form>
       <div class="tweetBox-input">
         <div>  <img src="https://i.zoomtventertainment.com/story/gaurav-chopra.jpg?tr=w-1200,h-900" alt="Avatar" class="avatar"> </div>
-       <textarea [rows]="row" (keyup)="fun($event.target.value)" cols="50" placeholder="What's happening?"></textarea>
+       <textarea #textinput [rows]="row" (keyup)="fun($event.target.value)" cols="50" #inputval placeholder="What's happening?"></textarea>
       </div>
       <div *ngIf="base64Img" class="icon_image">
         <!-- <img [src]="data.image" alt="" srcset=""> -->
@@ -17,7 +17,7 @@
         </div>
       </div>  
       <div> 
-        <button class="tweet_button" > Tweet </button>
+        <button type="button" class="tweet_button" (click)="saveProductDetailsStepThree()" [disabled]="!base64Img && !description" > Tweet </button>
       </div>  
       </div>
   </form>

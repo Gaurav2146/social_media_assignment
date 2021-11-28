@@ -13,7 +13,8 @@ import { UserComponent } from './user/user.component';
 import { FollowersComponent } from './user/followers/followers.component';
 import { TweetDialogComponent } from './tweet-dialog/tweet-dialog.component';
 
-
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,9 @@ import { TweetDialogComponent } from './tweet-dialog/tweet-dialog.component';
     BrowserModule,
     AppRoutingModule,
     MaterialModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

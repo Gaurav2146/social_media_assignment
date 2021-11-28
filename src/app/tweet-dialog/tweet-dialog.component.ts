@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject, ViewChild, ElementRef } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { TweetService } from '../services/tweet.service';
 
 @Component({
   selector: 'app-tweet-dialog',
@@ -8,10 +9,12 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class TweetDialogComponent implements OnInit {
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any) {}
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any , private tweetService : TweetService) {}
   @ViewChild('fileInput') el:ElementRef;
+  @ViewChild('textinput') text:ElementRef;
   row : number = 1;
   base64Img : string = '';
+  description : string = '';
 
   ngOnInit(): void {
     console.log( this.data , 'data' )
@@ -19,6 +22,7 @@ export class TweetDialogComponent implements OnInit {
   
   fun(event)
   {
+    this.description = event;
     console.log(event);
     let len = event.length;
     let row = Math.ceil( len / 35 );
@@ -50,7 +54,26 @@ export class TweetDialogComponent implements OnInit {
     }
   }
 
+  saveProductDetailsStepThree() {
+    if(!this.description && !this.base64Img)
+    {
+        return;
+    }
+    let body = {
+      image : this.base64Img , 
+      description : this.description,
+      user_Id : "12345678"
+    }
+      this.tweetService.addNewProductStepThree(body).subscribe((result: any) => {
+        if (result.success === true) {
+          console.log(result);
+          this.base64Img = '';
+          this.text.nativeElement.value='';
+        }
+      }, (error) => {
+      });
+  
+  }
 
   
-
 }

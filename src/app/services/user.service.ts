@@ -16,4 +16,9 @@ export class UserService {
     return this.apiService.request('post', 'user/removeFollower', Obj )
   };
 
+  public getUsersToFollow() {
+    return this.apiService.request('get', 'user/getUsersToFollow' )
+  };
+  
+
 }

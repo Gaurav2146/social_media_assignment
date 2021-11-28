@@ -70,12 +70,10 @@ export class TweetBoxComponent implements OnInit {
 
   
   saveProductDetailsStepThree() {
-
     if(!this.description && !this.base64Img)
     {
         return;
     }
-
     let body = {
       image : this.base64Img , 
       description : this.description,

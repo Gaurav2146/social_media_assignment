@@ -15,6 +15,10 @@ import { TweetDialogComponent } from './tweet-dialog/tweet-dialog.component';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +30,10 @@ import { FormsModule } from '@angular/forms';
     UserComponent,
     FollowersComponent,
     TweetDialogComponent,
+    HomeComponent,
+    LoginComponent,
+    SignupComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,

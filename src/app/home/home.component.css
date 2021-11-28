@@ -1,0 +1,26 @@
+.app
+{
+    display: flex;
+    max-width: 1300px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 10px;
+}
+
+.sidebar-width
+{
+    min-width: 22%;
+    max-width: 22%;
+}
+
+.feed-width
+{
+    min-width: 48%;
+    max-width: 48%;
+}
+
+.user-width
+{
+    min-width: 30%;
+    max-width: 30%;
+}

@@ -2,6 +2,7 @@ import { Component, OnInit, Inject, ViewChild, ElementRef } from '@angular/core'
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { TweetService } from '../services/tweet.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-tweet-dialog',
@@ -10,7 +11,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class TweetDialogComponent implements OnInit {
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any , private tweetService : TweetService , private snackbar : MatSnackBar 
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any , private tweetService : TweetService ,
+   private snackbar : MatSnackBar , private userService : UserService
   , public dailogRef: MatDialogRef<TweetDialogComponent>) {}
   @ViewChild('fileInput') el:ElementRef;
   @ViewChild('textinput') text:ElementRef;
@@ -71,6 +73,7 @@ export class TweetDialogComponent implements OnInit {
           this.base64Img = '';
           this.text.nativeElement.value='';
           this.dailogRef.close();
+          this.userService.newTweet.next('new Tweet');
           this.snackbar.open("Tweet done Successfully!", 'X', { horizontalPosition: 'end', verticalPosition: 'bottom', duration: 4000, panelClass: ['info-snackbar'] });
         }
       }, (error) => {

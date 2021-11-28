@@ -1,10 +1,13 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from './api.service';
+import { BehaviorSubject, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
+
+  newTweet = new Subject<any>();
 
   constructor( private apiService : ApiService ) { }
 

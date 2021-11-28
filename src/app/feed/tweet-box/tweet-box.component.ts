@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { TweetDialogComponent } from 'src/app/tweet-dialog/tweet-dialog.component';
 import { TweetService } from 'src/app/services/tweet.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-tweet-box',
@@ -20,7 +21,8 @@ export class TweetBoxComponent implements OnInit {
   base64Img : string = '';
   description : any = '';
 
-  constructor(public dialog: MatDialog , private tweetService : TweetService , private snackbar : MatSnackBar) {}
+  constructor(public dialog: MatDialog , private tweetService : TweetService , private snackbar : MatSnackBar ,
+    private userService : UserService) {}
 
   ngOnInit(): void {
   }
@@ -29,17 +31,11 @@ export class TweetBoxComponent implements OnInit {
   fun(event)
   {
     console.log(event);
-
     this.description = event;
-
     let len = event.length;
-
     console.log(  )
-
     let row = Math.ceil( len / 35 );
-
     this.row = row;
-
   }
 
 
@@ -85,6 +81,7 @@ export class TweetBoxComponent implements OnInit {
           console.log(result);
           this.base64Img = '';
           this.text.nativeElement.value='';
+          this.userService.newTweet.next('new Tweet');
           this.snackbar.open("Tweet done Successfully!", 'X', { horizontalPosition: 'end', verticalPosition: 'bottom', duration: 4000, panelClass: ['info-snackbar'] });
         }
       }, (error) => {

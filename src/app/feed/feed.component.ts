@@ -15,15 +15,19 @@ export class FeedComponent implements OnInit {
 
   ngOnInit(): void {
     this.getPosts();
+    this.userService.newTweet.subscribe((data)=>{
+      if(data)
+      {
+        this.getPosts();
+      }
+    })
   }
 
   getPosts()
   {
     this.userService.getPosts().subscribe((data)=>{
-      console.log( data , 'data' );
       this.Posts = data;
       // this.snackbar.open("Tweet Fetched Successfully!", 'X', { horizontalPosition: 'end', verticalPosition: 'bottom', duration: 4000, panelClass: ['info-snackbar'] });
-      
     },(error)=>{
       // this.snackbar.open("Something Went Wrong!", 'X', { horizontalPosition: 'end', verticalPosition: 'bottom', duration: 4000, panelClass: ['info-snackbar'] });
     })

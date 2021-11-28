@@ -26,6 +26,7 @@ export class FollowersComponent implements OnInit {
      this.user_service.addFollower({ followerId : this.userId }).subscribe((data)=>{
       console.log(data);
       this.Follow = "Following";
+      this.user_service.newTweet.next('new Tweet');
       this.snackbar.open("Followed Successfully", 'X', { horizontalPosition: 'end', verticalPosition: 'bottom', duration: 4000, panelClass: ['info-snackbar'] });
      },(error)=>{
       this.snackbar.open("Something went wrong!", 'X', { horizontalPosition: 'end', verticalPosition: 'bottom', duration: 4000, panelClass: ['info-snackbar'] });

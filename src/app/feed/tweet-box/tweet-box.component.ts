@@ -90,5 +90,11 @@ export class TweetBoxComponent implements OnInit {
   
   }
 
+
+  getRecentTweet()
+  {
+    this.userService.newTweet.next('Tweet Done');
+  }
+
   
 }

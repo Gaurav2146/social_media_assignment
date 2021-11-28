@@ -10,6 +10,7 @@ import { PostComponent } from './feed/post/post.component';
 import { MaterialModule } from './material/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UserComponent } from './user/user.component';
+import { FollowersComponent } from './user/followers/followers.component';
 
 
 
@@ -21,6 +22,7 @@ import { UserComponent } from './user/user.component';
     TweetBoxComponent,
     PostComponent,
     UserComponent,
+    FollowersComponent,
   ],
   imports: [
     BrowserModule,

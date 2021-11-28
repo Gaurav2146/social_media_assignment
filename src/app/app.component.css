@@ -18,3 +18,9 @@
     min-width: 48%;
     max-width: 48%;
 }
+
+.user-width
+{
+    min-width: 30%;
+    max-width: 30%;
+}

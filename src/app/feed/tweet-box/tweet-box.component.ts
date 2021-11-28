@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { TweetDialogComponent } from 'src/app/tweet-dialog/tweet-dialog.component';
 import { TweetService } from 'src/app/services/tweet.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-tweet-box',
@@ -19,7 +20,7 @@ export class TweetBoxComponent implements OnInit {
   base64Img : string = '';
   description : any = '';
 
-  constructor(public dialog: MatDialog , private tweetService : TweetService) {}
+  constructor(public dialog: MatDialog , private tweetService : TweetService , private snackbar : MatSnackBar) {}
 
   ngOnInit(): void {
   }
@@ -77,27 +78,20 @@ export class TweetBoxComponent implements OnInit {
     let body = {
       image : this.base64Img , 
       description : this.description,
-      user_Id : "12345678"
     }
-      this.tweetService.addNewProductStepThree(body).subscribe((result: any) => {
+      this.tweetService.createTweet(body).subscribe((result: any) => {
         if (result.success === true) {
          
           console.log(result);
           this.base64Img = '';
           this.text.nativeElement.value='';
-
+          this.snackbar.open("Tweet done Successfully!", 'X', { horizontalPosition: 'end', verticalPosition: 'bottom', duration: 4000, panelClass: ['info-snackbar'] });
         }
       }, (error) => {
+        this.snackbar.open("Something went wrong!", 'X', { horizontalPosition: 'end', verticalPosition: 'bottom', duration: 4000, panelClass: ['info-snackbar'] });
       });
   
   }
 
-  // openDialog(data) {
-  //   this.dialog.open(TweetDialogComponent, {
-  //     data: {
-  //       image : data,
-  //     },
-  //   });
-  // }
-
+  
 }

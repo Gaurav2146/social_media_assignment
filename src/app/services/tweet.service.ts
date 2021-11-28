@@ -9,8 +9,8 @@ export class TweetService {
   constructor(private apiService : ApiService) { }
 
 
-  public addNewProductStepThree(productObject: any) {
-    return this.apiService.request('post', 'product/addProductStepThree', productObject)
+  public createTweet(productObject: any) {
+    return this.apiService.request('post', 'tweet/createTweet', productObject)
   };
 
 

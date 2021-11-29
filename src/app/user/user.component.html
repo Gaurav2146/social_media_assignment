@@ -7,13 +7,9 @@
 
 <div class="follower__info">
     <div class="header_text">  Who to follow </div>
-    
     <span *ngFor="let user of users_to_follow" >
     <app-followers  [name] = "user.name" [email] = "user.email" [userId] = "user._id" ></app-followers>
     </span>
-
-    <!-- <app-followers></app-followers>
-    <app-followers></app-followers> -->
 </div>
  
 
